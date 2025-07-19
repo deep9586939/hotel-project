@@ -7,7 +7,15 @@
     
     <?php require('inc/links.php');?>
 
-    <style>       
+    <style>
+        .custom-bg{
+          background-color:  #2ec1ac;
+          border: 1px solid  #2ec1ac;
+        }
+        .custom-bg:hover{
+          background-color: #279e8c;
+          border-color: #279e8c;
+        }       
         .availability-form{
           margin-top: -50px;
           z-index: 2;
@@ -135,6 +143,15 @@
                       Room heater
                     </span>
                 </div>
+                <div class="guests mb-4">
+                  <h6 class=" mb-1">Guests</h6>
+                  <span class="badge rounded-pill bg-light text-dark text wrap lh-base">
+                      5 Adults
+                    </span>
+                    <span class="badge rounded-pill bg-light text-dark text wrap lh-base">
+                      4 Children
+                    </span>
+                </div>
                 <div class="rating mb-4">
                   <h6 class=" mb-1">Features</h6>
                     <span class=" badge rounded-pill bg-light">
@@ -185,6 +202,15 @@
                     </span>
                     <span class="badge rounded-pill bg-light text-dark text wrap lh-base">
                       Room heater
+                    </span>
+                </div>
+                <div class="guests mb-4">
+                  <h6 class=" mb-1">Guests</h6>
+                  <span class="badge rounded-pill bg-light text-dark text wrap lh-base">
+                      5 Adults
+                    </span>
+                    <span class="badge rounded-pill bg-light text-dark text wrap lh-base">
+                      4 Children
                     </span>
                 </div>
                 <div class="rating mb-4">
@@ -239,6 +265,15 @@
                       Room heater
                     </span>
                 </div>
+                <div class="guests mb-4">
+                  <h6 class=" mb-1">Guests</h6>
+                  <span class="badge rounded-pill bg-light text-dark text wrap lh-base">
+                      5 Adults
+                    </span>
+                    <span class="badge rounded-pill bg-light text-dark text wrap lh-base">
+                      4 Children
+                    </span>
+                </div>
                 <div class="rating mb-4">
                   <h6 class=" mb-1">Features</h6>
                     <span class=" badge rounded-pill bg-light">
@@ -258,7 +293,7 @@
           
 
           <div class="col-lg-12 text-center mt-5">
-            <a href="#" class=" btn btn-sm btn-outline-dark rounded-0 fw-bold shadow-none">More Rooms->>></a>
+            <a href="rooms.php" class=" btn btn-sm btn-outline-dark rounded-0 fw-bold shadow-none">More Rooms->>></a>
           </div>
         </div>
       </div>
@@ -290,7 +325,7 @@
             <h5 class="mt-3">Spa</h5>
           </div>
           <div class="col-lg-12 text-center mt-5">
-            <a href="#" class=" btn btn-sm btn-outline-dark rounded-0 fw-bold shadow-none">More Facilities->>></a>
+            <a href="facilities.php" class=" btn btn-sm btn-outline-dark rounded-0 fw-bold shadow-none">More Facilities->>></a>
           </div>
         </div>
       </div>
@@ -394,7 +429,7 @@
           <div class="swiper-pagination"></div>
         </div>
         <div class="col-lg-12 text-center mt-5">
-            <a href="#" class=" btn btn-sm btn-outline-dark rounded-0 fw-bold shadow-none">Know More->>></a>
+            <a href="about.php" class=" btn btn-sm btn-outline-dark rounded-0 fw-bold shadow-none">Know More->>></a>
         </div>
       </div>
 

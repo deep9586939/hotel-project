@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DH hotel - ABOUT</title>
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <?php require('inc/links.php');?>
+      <?php require('inc/links.php');?>
     <style>
       .h-line{
           width: 150px;
@@ -49,7 +49,7 @@
           </p>
         </div>
         <div class="col-lg-5 col-md-5 mb-4 order-lg-2 order-md-2 order-1">
-          <img src="images/about/about.jpg" class="w-100">
+          <img src="images/about/head.jpg" class="w-100">
         </div>
       </div>
     </div>

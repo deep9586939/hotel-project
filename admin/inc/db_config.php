@@ -45,4 +45,29 @@
         }
     }
 
+    function update($sql,$values,$datatypes)
+    {
+        $con = $GLOBALS['con'];
+        if($stmt = mysqli_prepare($con,$sql))
+            {
+                mysqli_stmt_bind_param($stmt,$datatypes,...$values);
+                if(mysqli_stmt_execute($stmt))
+                {
+                    
+                    $res = mysqli_stmt_affected_rows($stmt);
+                    mysqli_stmt_close($stmt);
+                    return $res;
+                }
+                else
+                {
+                    die("Query cannot be executed-update");
+                }
+            }
+        else
+        {
+            die("Query cannot be prepared-update");
+        }
+    }
+    
+
 ?>

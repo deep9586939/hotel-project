@@ -36,6 +36,7 @@
                 }
                 else
                 {
+                    mysqli_stmt_close($stmt);
                     die("Query cannot be executed-select");
                 }
             }
@@ -60,6 +61,7 @@
                 }
                 else
                 {
+                    mysqli_stmt_close($stmt);
                     die("Query cannot be executed-update");
                 }
             }

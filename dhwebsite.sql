@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 29, 2025 at 12:20 PM
+-- Generation Time: Aug 04, 2025 at 09:15 AM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- PHP Version: 8.1.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -43,6 +43,32 @@ INSERT INTO `admin_cred` (`sr_no`, `admin_name`, `admin_pass`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `contact_details`
+--
+
+CREATE TABLE `contact_details` (
+  `sr_no` int(11) NOT NULL,
+  `address` varchar(50) NOT NULL,
+  `gmap` varchar(100) NOT NULL,
+  `pn1` varchar(30) NOT NULL,
+  `pn2` varchar(30) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `tw` varchar(100) NOT NULL,
+  `fb` varchar(100) NOT NULL,
+  `insta` varchar(100) NOT NULL,
+  `iframe` varchar(300) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `contact_details`
+--
+
+INSERT INTO `contact_details` (`sr_no`, `address`, `gmap`, `pn1`, `pn2`, `email`, `tw`, `fb`, `insta`, `iframe`) VALUES
+(1, 'XYZ,Rajkot,Gujarat', 'https://maps.app.goo.gl/jZwJva9SkLcEKArv9', ' 919846896732', ' 919586939760', 'ask.dh_hotel@gmail.com', 'twitter.com', 'facebook.com', 'instagram.com', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118147.82106511467!2d70.73889449311717!3d22.273466166667237!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959c98ac71cdf0f:0x76dd15cfbe93ad3b!2sRajkot, Gujarat!5e0!3m2!1sen!2sin!4v1754224605869!5m2!1sen!2sin');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `settings`
 --
 
@@ -58,7 +84,7 @@ CREATE TABLE `settings` (
 --
 
 INSERT INTO `settings` (`sr_no`, `site_title`, `site_about`, `shutdown`) VALUES
-(1, '', '', 0);
+(1, 'DH hotel', 'about us content', 0);
 
 --
 -- Indexes for dumped tables
@@ -68,6 +94,12 @@ INSERT INTO `settings` (`sr_no`, `site_title`, `site_about`, `shutdown`) VALUES
 -- Indexes for table `admin_cred`
 --
 ALTER TABLE `admin_cred`
+  ADD PRIMARY KEY (`sr_no`);
+
+--
+-- Indexes for table `contact_details`
+--
+ALTER TABLE `contact_details`
   ADD PRIMARY KEY (`sr_no`);
 
 --
@@ -85,6 +117,12 @@ ALTER TABLE `settings`
 --
 ALTER TABLE `admin_cred`
   MODIFY `sr_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `contact_details`
+--
+ALTER TABLE `contact_details`
+  MODIFY `sr_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `settings`

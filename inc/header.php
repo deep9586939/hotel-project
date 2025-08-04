@@ -12,13 +12,13 @@
              <a class="nav-link active me-2" aria-current="page" href="index.php">Home</a>
            </li>
             <li class="nav-item">
-              <a class="nav-link me-2" href="#">Rooms</a>
+              <a class="nav-link me-2" href="rooms.php">Rooms</a>
             </li>
               <li class="nav-item">
               <a class="nav-link me-2" href="facilities.php">Facilities</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link me-2" href="#">Contact us</a>
+              <a class="nav-link me-2" href="contact.php">Contact us</a>
             </li>  
               <li class="nav-item">
               <a class="nav-link me-2" href="about.php">About</a>
@@ -78,8 +78,9 @@
               <button type="reset" class="btn-close shadow none" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <span class="badge rounded-pill bg-light text-dark mb-3 text wrap lh-base">
-                note: Your details must match with your ID(Aadhaar card,Passport,Driving licence,etc.)
+              <span class="badge rounded-pill bg-light text-dark mb-3 text wrap lh-base align-items-between">
+                note: Your details must match with your ID(Aadhaar card,Passport,
+                Driving licence,etc.)
                 that will be required during check-in.
               </span>
             <div class="container-fluid">

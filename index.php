@@ -7,15 +7,7 @@
     
     <?php require('inc/links.php');?>
 
-    <style>
-        .custom-bg{
-          background-color:  #2ec1ac;
-          border: 1px solid  #2ec1ac;
-        }
-        .custom-bg:hover{
-          background-color: #279e8c;
-          border-color: #279e8c;
-        }       
+    <style>     
         .availability-form{
           margin-top: -50px;
           z-index: 2;

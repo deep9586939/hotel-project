@@ -380,7 +380,6 @@
             contacts_data = JSON.parse(this.responseText);
             contacts_data = Object.values(contacts_data);
 
-
             for(i=0;i<contacts_p_id.length;i++)
             {
                 document.getElementById(contacts_p_id[i]).innerText = contacts_data[i+1];
@@ -458,20 +457,29 @@
 
         xhr.onload = function()
         {
-
-           /* var myModal = document.getElementById('general-s')
+            var myModal = document.getElementById('team-s')
             var modal = bootstrap.Modal.getInstance(myModal)
             modal.hide();
 
-            if(this.responseText == 1)
+            if(this.responseText == 'inv_img')
             {
-                alert('success','Changes saved!');
-                get_general();
+                alert('error','Only JPG and PNG images are allowed!');
+            }
+            else if(this.responseText == 'inv_size')
+            {
+                alert('error','Image should be less than 2MB!');
+            }
+            else if(this.responseText == 'upd_failed')
+            {
+                alert('error','Image upload failed. Server Down!');
             }
             else
             {
-                alert('error','No changes made!');
-            }*/
+                alert('success','New member Added!');
+                member_name_inp.value='';
+                member_picture_inp.value='';
+                
+            }
 
         }
         xhr.send(data);

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 05, 2025 at 09:14 AM
+-- Generation Time: Aug 13, 2025 at 05:35 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.1.25
 
@@ -50,8 +50,8 @@ CREATE TABLE `contact_details` (
   `sr_no` int(11) NOT NULL,
   `address` varchar(50) NOT NULL,
   `gmap` varchar(100) NOT NULL,
-  `pn1` varchar(30) NOT NULL,
-  `pn2` varchar(30) NOT NULL,
+  `pn1` bigint(20) NOT NULL,
+  `pn2` bigint(20) NOT NULL,
   `email` varchar(100) NOT NULL,
   `tw` varchar(100) NOT NULL,
   `fb` varchar(100) NOT NULL,
@@ -64,7 +64,7 @@ CREATE TABLE `contact_details` (
 --
 
 INSERT INTO `contact_details` (`sr_no`, `address`, `gmap`, `pn1`, `pn2`, `email`, `tw`, `fb`, `insta`, `iframe`) VALUES
-(1, 'XYZ,Rajkot,Gujarat', 'https://maps.app.goo.gl/jZwJva9SkLcEKArv9', ' 919846896732', ' 919586939760', 'ask.dh_hotel@gmail.com', 'twitter.com', 'facebook.com', 'instagram.com', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118147.82106511467!2d70.73889449311717!3d22.273466166667237!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959c98ac71cdf0f:0x76dd15cfbe93ad3b!2sRajkot, Gujarat!5e0!3m2!1sen!2sin!4v1754224605869!5m2!1sen!2sin');
+(1, 'XYZ,Rajkot,Gujarat', 'https://maps.app.goo.gl/jZwJva9SkLcEKArv9', 919978711846, 919586939760, 'ask.dh_hotel@gmail.com', 'https://www.facebook.com/', 'https://www.facebook.com/', 'https://www.facebook.com/', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118147.82106511467!2d70.73889449311717!3d22.273466166667237!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959c98ac71cdf0f:0x76dd15cfbe93ad3b!2sRajkot, Gujarat!5e0!3m2!1sen!2sin!4v1754224605869!5m2!1sen!2sin');
 
 -- --------------------------------------------------------
 
@@ -84,7 +84,7 @@ CREATE TABLE `settings` (
 --
 
 INSERT INTO `settings` (`sr_no`, `site_title`, `site_about`, `shutdown`) VALUES
-(1, 'DH hotel', 'about us ', 0);
+(1, 'DH hotel', 'about us', 0);
 
 -- --------------------------------------------------------
 
@@ -97,14 +97,6 @@ CREATE TABLE `team_details` (
   `name` varchar(50) NOT NULL,
   `picture` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `team_details`
---
-
-INSERT INTO `team_details` (`sr_no`, `name`, `picture`) VALUES
-(2, 'deep', 'IMG_86812.jpg'),
-(3, 'uttam', 'IMG_11549.jpg');
 
 --
 -- Indexes for dumped tables
@@ -160,7 +152,7 @@ ALTER TABLE `settings`
 -- AUTO_INCREMENT for table `team_details`
 --
 ALTER TABLE `team_details`
-  MODIFY `sr_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `sr_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

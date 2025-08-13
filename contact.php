@@ -35,35 +35,58 @@
         non aut voluptas at?
       </p>
      </div>
+
+    <?php  
+      $contact_q = "SELECT * FROM `contact_details` WHERE `sr_no`=?";
+      $values = [1];
+      $contact_r =mysqli_fetch_assoc(select($contact_q,$values,'i'));
+    ?>
+
      <div class="container">
       <div class="row">
         <div class="col-lg-6 col-md-6 mb-5 px-4">
           <div class="bg-white rounded shadow p-4">
-            <iframe class="w-100 rounded mb-4" height="320px" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118147.82106511467!2d70.7388944931172!3d22.27346616666724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959c98ac71cdf0f%3A0x76dd15cfbe93ad3b!2sRajkot%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1752152025705!5m2!1sen!2sin"  loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe class="w-100 rounded mb-4" height="320px" src="<?php echo $contact_r['iframe'] ?>"  loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             <h5>Address</h5>
-            <a href="https://maps.app.goo.gl/jZwJva9SkLcEKArv9" target="_blank" class="d-inline-block text-decoration-none text-dark mb-2">
-              <i class="bi bi-geo-alt-fill"></i>XYZ,Rajkot,Gujarat
+            <a href="<?php echo $contact_r['gmap'] ?>" target="_blank" class="d-inline-block text-decoration-none text-dark mb-2">
+              <i class="bi bi-geo-alt-fill"></i><?php echo $contact_r['address'] ?>
             </a>
             <h5 class="mt-4">Call us</h5>
-              <a href="tel: +919846896732" class="d-line-block mb-2 text-decoration-none text-dark">
-                <i class="bi bi-telephone-fill"></i>+919846896732
+              <a href="tel: +<?php echo $contact_r['pn1'] ?>" class="d-line-block mb-2 text-decoration-none text-dark">
+                <i class="bi bi-telephone-fill"></i>+<?php echo $contact_r['pn1'] ?>
               </a>
               <br>
-              <a href="tel: +919846896732" class="d-line-block text-decoration-none text-dark">
-                <i class="bi bi-telephone-fill"></i>+919586939760
-              </a>
+              <?php 
+                if($contact_r['pn2']!='')
+                {
+                  echo<<<data
+                    <a href="tel: +$contact_r[pn2]" class="d-line-block text-decoration-none text-dark">
+                      <i class="bi bi-telephone-fill"></i>+$contact_r[pn2]
+                    </a>
+                  data;
+                }
+              ?>
               <h5 class="mt-4">Email</h5>
-              <a href="mailto:ask.dh_hotel@gmail.com" class="d-line-block text-decoration-none text-dark">
-                <i class="bi bi-envelope-fill me-2"></i>ask.dh_hotel@gmail.com
+              <a href="<?php echo $contact_r['email'] ?>" class="d-line-block text-decoration-none text-dark">
+                <i class="bi bi-envelope-fill me-2"></i><?php echo $contact_r['email'] ?>
               </a>
               <h5 class="mt-4">Follow us</h5>
-              <a href="#" class="d-line-block text-dark fs-5 me-2">
-                <i class="bi bi-twitter me-1 "></i>
-              </a>
-              <a href="#" class="d-line-block text-dark fs-5 me-2 ">
+              <?php 
+                if($contact_r['tw']!='')
+                {
+                  echo<<<data
+                  <a href="$contact_r[tw]" class="d-line-block text-dark fs-5 me-2">
+                    <i class="bi bi-twitter me-1 "></i>
+                  </a>
+                  data;
+                }
+              ?>
+              
+              
+              <a href="<?php echo $contact_r['fb'] ?>" class="d-line-block text-dark fs-5 me-2 ">
                   <i class="bi bi-facebook me-1"></i>
               </a>
-              <a href="#" class="d-line-block text-dark fs-5">
+              <a href="<?php echo $contact_r['insta'] ?>" class="d-line-block text-dark fs-5">
                   <i class="bi bi-instagram me-1"></i>
               </a>
           </div>

@@ -347,6 +347,7 @@
                 <i class="bi bi-star-fill text-warning"></i>
               </div>
             </div>
+
             <div class="swiper-slide bg-white p-4">
               <div class="profile d-flex align-items-center mb-3">
                 <img src="images/features/food.jpeg" width="30px">
@@ -364,6 +365,7 @@
                 <i class="bi bi-star-fill text-warning"></i>
               </div>
             </div>
+
             <div class="swiper-slide bg-white p-4">
               <div class="profile d-flex align-items-center mb-3">
                 <img src="images/features/food.jpeg" width="30px">
@@ -381,6 +383,7 @@
                 <i class="bi bi-star-fill text-warning"></i>
               </div>
             </div>
+
             <div class="swiper-slide bg-white p-4">
               <div class="profile d-flex align-items-center mb-3">
                 <img src="images/features/food.jpeg" width="30px">
@@ -398,6 +401,7 @@
                 <i class="bi bi-star-fill text-warning"></i>
               </div>
             </div>
+
             <div class="swiper-slide bg-white p-4">
               <div class="profile d-flex align-items-center mb-3">
                 <img src="images/features/food.jpeg" width="30px">
@@ -426,40 +430,64 @@
       </div>
 
       <!--Reach us-->
+
+      <?php 
+        $contact_q = "SELECT * FROM `contact_details` WHERE `sr_no`=?";
+        $values = [1];
+        $contact_r =mysqli_fetch_assoc(select($contact_q,$values,'i'));
+
+      ?>
       
       <h2 class="mt-5 pt-5 mb-4 text-center fw-bold">REACH US</h2>
 
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-md-8 p-4 mb-lg-0 mb-3 bg-white rounded">
-            <iframe class="w-100 rounded" height="320px" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118147.82106511467!2d70.7388944931172!3d22.27346616666724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959c98ac71cdf0f%3A0x76dd15cfbe93ad3b!2sRajkot%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1752152025705!5m2!1sen!2sin"  loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe class="w-100 rounded" height="320px" src="<?php echo $contact_r['iframe'] ?>"  loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
           <div class="col-lg-4 col-md-4">
             <div class="bg-white p-4 rounded mb-4">
               <h5>Call us</h5>
-              <a href="tel: +919846896732" class="d-line-block mb-2 text-decoration-none text-dark">
-                <i class="bi bi-telephone-fill"></i>+919846896732
+              <a href="tel: +<?php echo $contact_r['pn1'] ?>" class="d-line-block mb-2 text-decoration-none text-dark">
+                <i class="bi bi-telephone-fill me-2"></i>+<?php echo $contact_r['pn1'] ?>
               </a>
               <br>
-              <a href="tel: +919846896732" class="d-line-block text-decoration-none text-dark">
-                <i class="bi bi-telephone-fill"></i>+919586939760
-              </a>
+              <?php 
+                if($contact_r['pn2']!='')
+                {
+                  echo<<<data
+                  <a href="tel: +$contact_r[pn2]" class="d-line-block text-decoration-none text-dark">
+                    <i class="bi bi-telephone-fill me-2"></i>+$contact_r[pn2]
+                  </a>
+                  data;
+                }
+              ?>
+
+              
             </div>
             <div class="bg-white p-4 rounded mb-4">
               <h5>Follow us</h5>
-              <a href="#" class="d-line-block ">
-                <span class="badge bg-light text-dark mb-3 fs-6 p-2">
-                  <i class="bi bi-twitter me-1"></i>Twitter
-                </span>
-              </a>
-              <br>
-              <a href="#" class="d-line-block ">
+              <?php 
+                if($contact_r['tw']!='')
+                {
+                  echo<<<data
+                    <a href="$contact_r[tw]" class="d-line-block ">
+                      <span class="badge bg-light text-dark mb-3 fs-6 p-2">
+                        <i class="bi bi-twitter me-1"></i>Twitter
+                      </span>
+                    </a>
+                    <br>
+                  data;
+                }
+              ?>
+              
+              <a href="<?php echo $contact_r['fb'] ?>" class="d-line-block ">
                 <span class="badge bg-light text-dark  mb-3 fs-6 p-2">
                   <i class="bi bi-facebook me-1"></i>Facebook
                 </span>
               </a>
               <br>
-              <a href="#" class="d-line-block">
+              <a href="<?php echo $contact_r['insta'] ?>" class="d-line-block">
                 <span class="badge bg-light text-dark fs-6 p-2">
                   <i class="bi bi-instagram me-1"></i>Instagram
                 </span>

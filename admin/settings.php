@@ -171,11 +171,11 @@
                                                         <label  class="form-label fw-bold">Phone Numbers (with country code)</label>
                                                         <div class="input-group mb-3">
                                                             <span class="input-group-text"><i class="bi bi-telephone-fill"></i></span>
-                                                            <input type="text" name="pn1" id="pn1_inp" class="form-control shadow-none" requried>
+                                                            <input type="number" name="pn1" id="pn1_inp" class="form-control shadow-none" requried>
                                                         </div>
                                                         <div class="input-group mb-3">
                                                             <span class="input-group-text"><i class="bi bi-telephone-fill"></i></span>
-                                                            <input type="text" name="pn2" id="pn2_inp" class="form-control shadow-none">
+                                                            <input type="number" name="pn2" id="pn2_inp" class="form-control shadow-none">
                                                         </div>
                                                     </div>
                                                     <div class="mb-3">
@@ -228,7 +228,6 @@
                         </div>
 
                         <div class="row" id="team-data">
-
                         </div>
                     </div>
                 </div>
@@ -253,7 +252,7 @@
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" onclick="" class="btn text-secondary shadow-none" data-bs-dismiss="modal">CANCEL</button>
+                                        <button type="button" onclick="member_name.value='',member_picture.value='' " class="btn text-secondary shadow-none" data-bs-dismiss="modal">CANCEL</button>
                                         <button type="submit" class="btn custom-bg text-white shadow-none">SUBMIT</button>
                                     </div>
                                 </div>
@@ -309,6 +308,7 @@
                 shutdown_toggle.value = 1;  
             }
         }
+
         xhr.send('get_general');
     }
 
@@ -478,12 +478,50 @@
                 alert('success','New member Added!');
                 member_name_inp.value='';
                 member_picture_inp.value='';
+                get_members();
                 
             }
 
         }
         xhr.send(data);
 
+    }
+
+    function get_members()
+    {
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST","ajax/settings_crud.php",true);
+        xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+
+        xhr.onload = function()
+        {
+            document.getElementById('team-data').innerHTML = this.responseText;
+        }
+        
+        xhr.send('get_members');
+    }
+
+    function rem_member(val)
+    {
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST","ajax/settings_crud.php",true);
+        xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+
+        xhr.onload = function()
+        {
+            if(this.responseText==1)
+            {
+                alert('success','Member removed!');
+                get_members();
+            }
+            else
+            {
+                alert('error','Server Down!');
+            }
+
+        }
+
+        xhr.send('rem_member='+val);
     }
 
 
@@ -493,6 +531,7 @@
     {
         get_general();
         get_contacts();
+        get_members();
     }
 
 </script>
